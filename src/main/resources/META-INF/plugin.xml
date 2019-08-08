@@ -1,0 +1,133 @@
+<idea-plugin>
+    <id>com.plugin.maven-dependencies-searcher</id>
+    <name>Maven Dependencies Searcher</name>
+    <vendor email="snsyzf@gmail.com" url="snsyzf@gmail.com">snsyzf</vendor>
+
+    <version>1.0.0</version>
+
+    <idea-version since-build="181.0" until-build="192.*"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <description><![CDATA[
+        <h1>Maven Dependencies Searcher</h1>
+        <br/>
+        <h2>Query search for maven dependencies.</h2>
+        <br/>
+        <table border="1">
+            <tr>
+                <td align="right">Or</td>
+                <td align="center">OR or -</td>
+                <td>g:junit OR a:junit</td>
+            </tr>
+            <tr>
+                <td align="right">And</td>
+                <td align="center">AND or +</td>
+                <td>g:junit AND a:junit</td>
+            </tr>
+            <tr>
+                <td align="right">Group</td>
+                <td align="center">g:</td>
+                <td>g:junit</td>
+            </tr>
+            <tr>
+                <td align="right">Artifact</td>
+                <td align="center">a:</td>
+                <td>a:junit</td>
+            </tr>
+            <tr>
+                <td align="right">Version</td>
+                <td align="center">v:</td>
+                <td>v:4.11</td>
+            </tr>
+            <tr>
+                <td align="right">Packaging</td>
+                <td align="center">p:</td>
+                <td>p:jar or p:war</td>
+            </tr>
+            <tr>
+                <td align="right">Classifier</td>
+                <td align="center">l:</td>
+                <td>l:sources or l:javadocs</td>
+            </tr>
+            <tr>
+                <td align="right">Class name</td>
+                <td align="center">c:</td>
+                <td>c:JUnit4</td>
+            </tr>
+            <tr>
+                <td align="right">Full Class name</td>
+                <td align="center">fc:</td>
+                <td>fc:org.sonatype.nexus</td>
+            </tr>
+            <tr>
+                <td align="right">SHA-1</td>
+                <td align="center">1:</td>
+                <td>1:2973d150c0dc1fefe998f834810d68f278ea58ec</td>
+            </tr>
+        </table>
+        ]]></description>
+    <change-notes><![CDATA[
+        <h1>Change notes</h1>
+        <br>
+
+        <h2>1.0.5</h2>
+        <ul>
+            <li>Add page size</li>
+            <li>Add download source support</li>
+        </ul>
+
+        <h2>1.0.4</h2>
+        <ul>
+            <li>Fix bug</li>
+        </ul>
+
+        <h2>1.0.3</h2>
+        <ul>
+            <li>Supported 2019.2</li>
+            <li>Optimize network requests</li>
+        </ul>
+
+        <h2>1.0.2</h2>
+        <ul>
+            <li>Remove useless dependencies</li>
+            <li>Add more loading</li>
+            <li>Add copy option</li>
+            <li>Add search options</li>
+        </ul>
+
+        <h2>1.0.1</h2>
+        <ul>
+            <li>Remove jide library</li>
+            <li>Fix Expand bug</li>
+            <li>Fix Collapse bug</li>
+        </ul>
+
+        <h2>1.0.0</h2>
+        <ul>
+            <li>Dependent search</li>
+            <li>Dependent download</li>
+        </ul>
+        ]]></change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="MavenDependenciesSearcher" class="com.plugin.searcher.MavenDependenciesSearcher" text="Maven Dependencies Searcher"
+                description="Maven dependencies searcher">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt R"/>
+        </action>
+    </actions>
+</idea-plugin>
